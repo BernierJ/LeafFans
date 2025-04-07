@@ -22,6 +22,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Grab Right",
+                    "type": "Button",
+                    "id": "9f78e506-c37e-4e11-b9e2-d972713f3cae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab Left",
+                    "type": "Button",
+                    "id": "9c0d1f1e-534e-4da7-8f89-5d6332d24ad5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftArmVertical",
+                    "type": "Button",
+                    "id": "0c7f04ac-0974-4565-9386-e23512ed1fb6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightArmVertical",
+                    "type": "Button",
+                    "id": "6846a23d-a614-4139-8580-8b1b786824c1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -134,6 +170,50 @@
                     "action": "Move Right Arm",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1e863151-a959-4744-a900-9e01e5cccfe1",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c0f7ba9-e64f-4563-9fcf-0c11e19a184d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2db788fe-9814-4d30-a0a7-8efc0c7b3968",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftArmVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fceb498a-5bf2-42ef-a350-4498800ebb12",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightArmVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,8 +8,8 @@ public class ArmMovement : MonoBehaviour
 {
     PlayerControls controls;
     [SerializeField] private float _movementStrength;
-    private Vector2 _leftDirection;
-    private Vector2 _rightDirection;
+    private Vector2 _leftJoystickDirection;
+    private Vector2 _rightJoystickDirection;
 
     [SerializeField] private Transform _leftArm;
     [SerializeField] private Transform _rightArm;
@@ -27,8 +28,8 @@ public class ArmMovement : MonoBehaviour
 
     private void Update()
     {
-        _leftDirection = controls.Gameplay.MoveLeftArm.ReadValue<Vector2>();
-        _rightDirection = controls.Gameplay.MoveRightArm.ReadValue<Vector2>();
+        _leftJoystickDirection = controls.Gameplay.MoveLeftArm.ReadValue<Vector2>();
+        _rightJoystickDirection = controls.Gameplay.MoveRightArm.ReadValue<Vector2>();
 
         MoveLeftArm(_leftArm);
         MoveRightArm(_rightArm);
@@ -36,12 +37,53 @@ public class ArmMovement : MonoBehaviour
 
     private void MoveLeftArm(Transform arm)
     {
-        arm.Translate(_leftDirection * Time.deltaTime * _movementStrength);
+     
+        if(controls.Gameplay.LeftArmVertical.inProgress)
+        {
+            if (_leftJoystickDirection.y > 0)
+            {
+                arm.Translate(0, 0, 1*Time.deltaTime * _movementStrength);
+            }
+            else if(_leftJoystickDirection.y < 0)
+            {
+                arm.Translate(0, 0, -1*Time.deltaTime * _movementStrength);
+            }
+        }
+        else
+        {
+            arm.Translate(_leftJoystickDirection * Time.deltaTime * _movementStrength);
+        }
     }
 
      private void MoveRightArm(Transform arm)
     {
-        arm.Translate(_rightDirection * Time.deltaTime * _movementStrength);
+        if(controls.Gameplay.RightArmVertical.inProgress)
+        {
+            if (_rightJoystickDirection.y > 0)
+            {
+                arm.Translate(0, 0, 1*Time.deltaTime * _movementStrength);
+            }
+            else if(_rightJoystickDirection.y < 0)
+            {
+                arm.Translate(0, 0, -1*Time.deltaTime * _movementStrength);
+            }
+        }
+        else
+        {
+            arm.Translate(_rightJoystickDirection * Time.deltaTime * _movementStrength);
+        }
+    }
+
+    private void GrabRight(Transform obj)
+    {
+        //
+        obj.position = transform.position;
+    }
+
+      private void GrabLeft(Transform obj)
+    {
+        //
+        obj.position = transform.position;
     }
 
     private void OnEnable()
@@ -53,4 +95,14 @@ public class ArmMovement : MonoBehaviour
     {
         controls.Gameplay.Disable();
     }
+
+    /*void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Grabbable")
+        {
+            controls.Gameplay.GrabRight.performed += ctx => GrabRight(collision.gameObject.transform);
+            controls.Gameplay.GrabLeft.performed += ctx => GrabLeft(collision.gameObject.transform);
+            
+        }
+    }*/
 }
