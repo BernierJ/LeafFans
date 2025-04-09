@@ -96,13 +96,13 @@ public class ArmMovement : MonoBehaviour
         controls.Gameplay.Disable();
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Grabbable")
+        if (collision.gameObject.tag == "Grabbable" && (controls.Gameplay.GrabLeft.inProgress || controls.Gameplay.GrabRight.inProgress))
         {
             controls.Gameplay.GrabRight.performed += ctx => GrabRight(collision.gameObject.transform);
             controls.Gameplay.GrabLeft.performed += ctx => GrabLeft(collision.gameObject.transform);
             
         }
-    }*/
+    }
 }
