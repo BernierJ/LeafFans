@@ -7,6 +7,12 @@ using UnityEngine.InputSystem;
 public class ArmMovement : MonoBehaviour
 {
     PlayerControls controls;
+
+    
+    public ArmGrabber leftArm;
+    public ArmGrabber rightArm;
+
+
     [SerializeField] private float _movementStrength;
     private Vector2 _leftJoystickDirection;
     private Vector2 _rightJoystickDirection;
@@ -23,6 +29,13 @@ public class ArmMovement : MonoBehaviour
 
         controls.Gameplay.MoveRightArm.performed += ctx => _rightDirection = ctx.ReadValue<Vector2>();
         controls.Gameplay.MoveRightArm.canceled += ctx => _rightDirection = Vector2.zero; */
+
+        // Arm movement not shown here, just grab input
+        controls.ArmControls.LeftGrab.performed += ctx => leftArm.grabPressed = true;
+        controls.ArmControls.LeftGrab.canceled += ctx => leftArm.grabPressed = false;
+
+        controls.ArmControls.RightGrab.performed += ctx => rightArm.grabPressed = true;
+        controls.ArmControls.RightGrab.canceled += ctx => rightArm.grabPressed = false;
 
     }
 
