@@ -238,6 +238,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ArmControls"",
+            ""id"": ""8cba6c6e-871f-4cc4-9e46-ec593a9a1902"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": []
@@ -250,11 +256,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_GrabLeft = m_Gameplay.FindAction("Grab Left", throwIfNotFound: true);
         m_Gameplay_LeftArmVertical = m_Gameplay.FindAction("LeftArmVertical", throwIfNotFound: true);
         m_Gameplay_RightArmVertical = m_Gameplay.FindAction("RightArmVertical", throwIfNotFound: true);
+        // ArmControls
+        m_ArmControls = asset.FindActionMap("ArmControls", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.Gameplay.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ArmControls.enabled, "This will cause a leak and performance issues, PlayerControls.ArmControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -398,6 +407,44 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // ArmControls
+    private readonly InputActionMap m_ArmControls;
+    private List<IArmControlsActions> m_ArmControlsActionsCallbackInterfaces = new List<IArmControlsActions>();
+    public struct ArmControlsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ArmControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_ArmControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ArmControlsActions set) { return set.Get(); }
+        public void AddCallbacks(IArmControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Add(instance);
+        }
+
+        private void UnregisterCallbacks(IArmControlsActions instance)
+        {
+        }
+
+        public void RemoveCallbacks(IArmControlsActions instance)
+        {
+            if (m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IArmControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ArmControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ArmControlsActions @ArmControls => new ArmControlsActions(this);
     public interface IGameplayActions
     {
         void OnMoveLeftArm(InputAction.CallbackContext context);
@@ -406,5 +453,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnGrabLeft(InputAction.CallbackContext context);
         void OnLeftArmVertical(InputAction.CallbackContext context);
         void OnRightArmVertical(InputAction.CallbackContext context);
+    }
+    public interface IArmControlsActions
+    {
     }
 }

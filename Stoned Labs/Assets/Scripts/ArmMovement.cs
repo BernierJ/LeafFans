@@ -31,18 +31,26 @@ public class ArmMovement : MonoBehaviour
         controls.Gameplay.MoveRightArm.canceled += ctx => _rightDirection = Vector2.zero; */
 
         // Arm movement not shown here, just grab input
-        controls.ArmControls.LeftGrab.performed += ctx => leftArm.grabPressed = true;
-        controls.ArmControls.LeftGrab.canceled += ctx => leftArm.grabPressed = false;
+        //controls.Gameplay.GrabLeft.performed += ctx => leftArm.grabPressed = true;
+        //controls.Gameplay.GrabLeft.canceled += ctx => leftArm.grabPressed = false;
 
-        controls.ArmControls.RightGrab.performed += ctx => rightArm.grabPressed = true;
-        controls.ArmControls.RightGrab.canceled += ctx => rightArm.grabPressed = false;
+        //controls.Gameplay.GrabRight.performed += ctx => rightArm.grabPressed = true;
+        //controls.Gameplay.GrabRight.canceled += ctx => rightArm.grabPressed = false;
 
     }
 
     private void Update()
     {
+        // arm movement
         _leftJoystickDirection = controls.Gameplay.MoveLeftArm.ReadValue<Vector2>();
         _rightJoystickDirection = controls.Gameplay.MoveRightArm.ReadValue<Vector2>();
+
+        // arm grabbing
+        controls.Gameplay.GrabLeft.performed += ctx => leftArm.grabPressed = true;
+        controls.Gameplay.GrabLeft.canceled += ctx => leftArm.grabPressed = false;
+
+        controls.Gameplay.GrabRight.performed += ctx => rightArm.grabPressed = true;
+        controls.Gameplay.GrabRight.canceled += ctx => rightArm.grabPressed = false;
 
         MoveLeftArm(_leftArm);
         MoveRightArm(_rightArm);

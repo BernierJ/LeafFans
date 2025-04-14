@@ -216,6 +216,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ArmControls",
+            "id": "8cba6c6e-871f-4cc4-9e46-ec593a9a1902",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []
