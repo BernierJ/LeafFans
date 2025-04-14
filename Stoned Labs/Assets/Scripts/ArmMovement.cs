@@ -69,6 +69,14 @@ public class ArmMovement : MonoBehaviour
             {
                 arm.Translate(0, 0, -1*Time.deltaTime * _movementStrength);
             }
+            if (_leftJoystickDirection.x > 0)
+            {
+                arm.Translate(1*Time.deltaTime*_movementStrength, 0, 0);
+            }
+            else if(_leftJoystickDirection.x < 0)
+            {
+                arm.Translate(-1*Time.deltaTime * _movementStrength, 0, 0);
+            }
         }
         else
         {
@@ -87,6 +95,15 @@ public class ArmMovement : MonoBehaviour
             else if(_rightJoystickDirection.y < 0)
             {
                 arm.Translate(0, 0, -1*Time.deltaTime * _movementStrength);
+            }
+            
+            if (_rightJoystickDirection.x > 0)
+            {
+                arm.Translate(1*Time.deltaTime*_movementStrength, 0, 0);
+            }
+            else if(_rightJoystickDirection.x < 0)
+            {
+                arm.Translate(-1*Time.deltaTime * _movementStrength, 0, 0);
             }
         }
         else
