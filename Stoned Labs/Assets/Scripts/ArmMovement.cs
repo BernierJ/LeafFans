@@ -112,17 +112,6 @@ public class ArmMovement : MonoBehaviour
         }
     }
 
-    private void GrabRight(Transform obj)
-    {
-        //
-        obj.position = transform.position;
-    }
-
-      private void GrabLeft(Transform obj)
-    {
-        //
-        obj.position = transform.position;
-    }
 
     private void OnEnable()
     {
@@ -134,13 +123,5 @@ public class ArmMovement : MonoBehaviour
         controls.Gameplay.Disable();
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Grabbable" && (controls.Gameplay.GrabLeft.inProgress || controls.Gameplay.GrabRight.inProgress))
-        {
-            controls.Gameplay.GrabRight.performed += ctx => GrabRight(collision.gameObject.transform);
-            controls.Gameplay.GrabLeft.performed += ctx => GrabLeft(collision.gameObject.transform);
-            
-        }
-    }
+   
 }
