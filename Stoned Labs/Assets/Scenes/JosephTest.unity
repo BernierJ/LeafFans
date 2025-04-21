@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: -3677817757614278034, guid: f864a42aa80d0374ba98f3aeab44b55b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: f864a42aa80d0374ba98f3aeab44b55b,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -372,6 +377,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Grabbable
       objectReference: {fileID: 0}
+    - target: {fileID: 3182244660871480619, guid: f864a42aa80d0374ba98f3aeab44b55b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3316992658331686828, guid: f864a42aa80d0374ba98f3aeab44b55b,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -382,6 +392,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.621
       objectReference: {fileID: 0}
+    - target: {fileID: 3590879325585990709, guid: f864a42aa80d0374ba98f3aeab44b55b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5666261585234168772, guid: f864a42aa80d0374ba98f3aeab44b55b,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -391,6 +406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.459
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793171510991142646, guid: f864a42aa80d0374ba98f3aeab44b55b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
