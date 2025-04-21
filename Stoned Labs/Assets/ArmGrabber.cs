@@ -32,4 +32,8 @@ public class ArmGrabber : MonoBehaviour
             //joint = null;
         }
     }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawCube(transform.position, transform.localScale);
+    }
 }
