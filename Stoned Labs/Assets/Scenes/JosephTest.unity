@@ -225,10 +225,81 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oven
       objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 208.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 217.06088
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5864769
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224694813830001383, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 140.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 133.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534246568528090362, guid: 89d469f5160df4642b0ba106250989ac,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
     - {fileID: 65702495048144492, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: -5531720581255164614, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: 8823154891176048494, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: -5334000131640321852, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: 8679558718761855538, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: -5413527474356003177, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
+    - {fileID: -5998301319071483956, guid: 89d469f5160df4642b0ba106250989ac, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 89d469f5160df4642b0ba106250989ac,

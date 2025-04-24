@@ -420,6 +420,134 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""8cba6c6e-871f-4cc4-9e46-ec593a9a1902"",
             ""actions"": [],
             ""bindings"": []
+        },
+        {
+            ""name"": ""QTEButtons"",
+            ""id"": ""51ef84f9-e795-4f8a-89fb-6bb6fe33fc12"",
+            ""actions"": [
+                {
+                    ""name"": ""UpButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d75536b-d172-4f83-9f79-706cc883062b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd6a18ff-4c7c-4378-a7c6-3157f847ddc0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""31204513-046e-4860-be4c-fd8959dcec88"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DownButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""affe564c-5eea-4bba-ab12-c0940ba8ec8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""test1"",
+                    ""type"": ""Button"",
+                    ""id"": ""0417aedf-cd59-4b0b-9bff-23b8d48e2929"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""test2"",
+                    ""type"": ""Button"",
+                    ""id"": ""a29f773e-701a-41b9-9230-9f9bdbd5fe24"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f54adc14-d255-4cee-afe7-8e4d49a82bd0"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""904e3ba9-ee45-4be8-87d6-b713bbd30413"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ace57d93-8ee5-45fc-b0f3-c964bfbef642"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2052422-da89-4182-ad63-9c30461e2e53"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c33644c2-b9b6-479d-84ac-b2e3f58b2c06"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""test1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42974282-43ad-457d-b801-4ce8c78462ba"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""test2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -434,12 +562,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_RightArmVertical = m_Gameplay.FindAction("RightArmVertical", throwIfNotFound: true);
         // ArmControls
         m_ArmControls = asset.FindActionMap("ArmControls", throwIfNotFound: true);
+        // QTEButtons
+        m_QTEButtons = asset.FindActionMap("QTEButtons", throwIfNotFound: true);
+        m_QTEButtons_UpButton = m_QTEButtons.FindAction("UpButton", throwIfNotFound: true);
+        m_QTEButtons_RightButton = m_QTEButtons.FindAction("RightButton", throwIfNotFound: true);
+        m_QTEButtons_LeftButton = m_QTEButtons.FindAction("LeftButton", throwIfNotFound: true);
+        m_QTEButtons_DownButton = m_QTEButtons.FindAction("DownButton", throwIfNotFound: true);
+        m_QTEButtons_test1 = m_QTEButtons.FindAction("test1", throwIfNotFound: true);
+        m_QTEButtons_test2 = m_QTEButtons.FindAction("test2", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.Gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_ArmControls.enabled, "This will cause a leak and performance issues, PlayerControls.ArmControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_QTEButtons.enabled, "This will cause a leak and performance issues, PlayerControls.QTEButtons.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -621,6 +758,92 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public ArmControlsActions @ArmControls => new ArmControlsActions(this);
+
+    // QTEButtons
+    private readonly InputActionMap m_QTEButtons;
+    private List<IQTEButtonsActions> m_QTEButtonsActionsCallbackInterfaces = new List<IQTEButtonsActions>();
+    private readonly InputAction m_QTEButtons_UpButton;
+    private readonly InputAction m_QTEButtons_RightButton;
+    private readonly InputAction m_QTEButtons_LeftButton;
+    private readonly InputAction m_QTEButtons_DownButton;
+    private readonly InputAction m_QTEButtons_test1;
+    private readonly InputAction m_QTEButtons_test2;
+    public struct QTEButtonsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public QTEButtonsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @UpButton => m_Wrapper.m_QTEButtons_UpButton;
+        public InputAction @RightButton => m_Wrapper.m_QTEButtons_RightButton;
+        public InputAction @LeftButton => m_Wrapper.m_QTEButtons_LeftButton;
+        public InputAction @DownButton => m_Wrapper.m_QTEButtons_DownButton;
+        public InputAction @test1 => m_Wrapper.m_QTEButtons_test1;
+        public InputAction @test2 => m_Wrapper.m_QTEButtons_test2;
+        public InputActionMap Get() { return m_Wrapper.m_QTEButtons; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(QTEButtonsActions set) { return set.Get(); }
+        public void AddCallbacks(IQTEButtonsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_QTEButtonsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_QTEButtonsActionsCallbackInterfaces.Add(instance);
+            @UpButton.started += instance.OnUpButton;
+            @UpButton.performed += instance.OnUpButton;
+            @UpButton.canceled += instance.OnUpButton;
+            @RightButton.started += instance.OnRightButton;
+            @RightButton.performed += instance.OnRightButton;
+            @RightButton.canceled += instance.OnRightButton;
+            @LeftButton.started += instance.OnLeftButton;
+            @LeftButton.performed += instance.OnLeftButton;
+            @LeftButton.canceled += instance.OnLeftButton;
+            @DownButton.started += instance.OnDownButton;
+            @DownButton.performed += instance.OnDownButton;
+            @DownButton.canceled += instance.OnDownButton;
+            @test1.started += instance.OnTest1;
+            @test1.performed += instance.OnTest1;
+            @test1.canceled += instance.OnTest1;
+            @test2.started += instance.OnTest2;
+            @test2.performed += instance.OnTest2;
+            @test2.canceled += instance.OnTest2;
+        }
+
+        private void UnregisterCallbacks(IQTEButtonsActions instance)
+        {
+            @UpButton.started -= instance.OnUpButton;
+            @UpButton.performed -= instance.OnUpButton;
+            @UpButton.canceled -= instance.OnUpButton;
+            @RightButton.started -= instance.OnRightButton;
+            @RightButton.performed -= instance.OnRightButton;
+            @RightButton.canceled -= instance.OnRightButton;
+            @LeftButton.started -= instance.OnLeftButton;
+            @LeftButton.performed -= instance.OnLeftButton;
+            @LeftButton.canceled -= instance.OnLeftButton;
+            @DownButton.started -= instance.OnDownButton;
+            @DownButton.performed -= instance.OnDownButton;
+            @DownButton.canceled -= instance.OnDownButton;
+            @test1.started -= instance.OnTest1;
+            @test1.performed -= instance.OnTest1;
+            @test1.canceled -= instance.OnTest1;
+            @test2.started -= instance.OnTest2;
+            @test2.performed -= instance.OnTest2;
+            @test2.canceled -= instance.OnTest2;
+        }
+
+        public void RemoveCallbacks(IQTEButtonsActions instance)
+        {
+            if (m_Wrapper.m_QTEButtonsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IQTEButtonsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_QTEButtonsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_QTEButtonsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public QTEButtonsActions @QTEButtons => new QTEButtonsActions(this);
     public interface IGameplayActions
     {
         void OnMoveLeftArm(InputAction.CallbackContext context);
@@ -632,5 +855,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IArmControlsActions
     {
+    }
+    public interface IQTEButtonsActions
+    {
+        void OnUpButton(InputAction.CallbackContext context);
+        void OnRightButton(InputAction.CallbackContext context);
+        void OnLeftButton(InputAction.CallbackContext context);
+        void OnDownButton(InputAction.CallbackContext context);
+        void OnTest1(InputAction.CallbackContext context);
+        void OnTest2(InputAction.CallbackContext context);
     }
 }
