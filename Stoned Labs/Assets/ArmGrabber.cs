@@ -12,7 +12,7 @@ public class ArmGrabber : MonoBehaviour
 
     //private FixedJoint joint;
 
-    void Update()
+    void FixedUpdate()
     {
         if (grabPressed && grabZone.heldObject != null) // && joint == null
         {
@@ -24,6 +24,12 @@ public class ArmGrabber : MonoBehaviour
             } */
 
             grabZone.heldObject.transform.position = grabZone.transform.position;
+
+            if(!grabZone.heldObject.GetComponent<Rigidbody>().isKinematic)
+            {
+                grabZone.heldObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+            
         }
 
         if (!grabPressed) //&& joint != null)

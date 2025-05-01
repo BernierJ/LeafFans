@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Grabbable
   - Hot
+  - Lock
+  - Locked
   layers:
   - Default
   - TransparentFX
