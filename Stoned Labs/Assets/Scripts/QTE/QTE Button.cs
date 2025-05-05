@@ -68,7 +68,7 @@ public class QTEButton : MonoBehaviour
         if (_triggerQTE)
         {
             _timerCountdown += Time.deltaTime;
-            HandleInput();
+            //HandleInput();
         }
         
     
@@ -118,16 +118,16 @@ public class QTEButton : MonoBehaviour
     {
         
 
-        if (action == _buttonAction.activeControl.name)
+        if (_buttonAction.inProgress)
         {
             _inputIsCorrect = true;
             CorrectInput();
         }
-        else
+        /*else
         {
             _inputIsCorrect = false;
             IncorrectInput();
-        }
+        } */
 
         Debug.Log("You entered " + action);
 

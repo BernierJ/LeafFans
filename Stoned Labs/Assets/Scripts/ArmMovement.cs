@@ -12,13 +12,15 @@ public class ArmMovement : MonoBehaviour
     public ArmGrabber leftArm;
     public ArmGrabber rightArm;
 
-
+    [SerializeField] private CameraSwitcher _camera;
     [SerializeField] private float _movementStrength;
     private Vector2 _leftJoystickDirection;
     private Vector2 _rightJoystickDirection;
 
     [SerializeField] private Transform _leftArm;
     [SerializeField] private Transform _rightArm;
+
+    private bool _changeAngle;
     void Awake()
     {
         
@@ -52,8 +54,10 @@ public class ArmMovement : MonoBehaviour
         controls.Gameplay.GrabRight.performed += ctx => rightArm.grabPressed = true;
         controls.Gameplay.GrabRight.canceled += ctx => rightArm.grabPressed = false;
 
+
         MoveLeftArm(_leftArm);
         MoveRightArm(_rightArm);
+        CameraInput();
     }
 
     private void MoveLeftArm(Transform arm)
@@ -121,6 +125,14 @@ public class ArmMovement : MonoBehaviour
     private void OnDisable()
     {
         controls.Gameplay.Disable();
+    }
+
+    private void CameraInput()
+    {
+        if(controls.Gameplay.ChangeCamera.inProgress)
+        {
+            _camera.ChangeCameraAngle();
+        }
     }
 
    

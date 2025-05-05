@@ -930,6 +930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 96776732}
   rightArm: {fileID: 1793378203}
+  _camera: {fileID: 1199517770}
   _movementStrength: 5
   _leftArm: {fileID: 96776726}
   _rightArm: {fileID: 1793378197}

@@ -80,6 +80,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ChangeCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""57ffb109-2808-47f1-933e-d721d9688438"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -412,6 +421,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""RightArmVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c713f95-05de-4d16-9b1b-d9bfadeb661b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -560,6 +580,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_GrabLeft = m_Gameplay.FindAction("Grab Left", throwIfNotFound: true);
         m_Gameplay_LeftArmVertical = m_Gameplay.FindAction("LeftArmVertical", throwIfNotFound: true);
         m_Gameplay_RightArmVertical = m_Gameplay.FindAction("RightArmVertical", throwIfNotFound: true);
+        m_Gameplay_ChangeCamera = m_Gameplay.FindAction("ChangeCamera", throwIfNotFound: true);
         // ArmControls
         m_ArmControls = asset.FindActionMap("ArmControls", throwIfNotFound: true);
         // QTEButtons
@@ -644,6 +665,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_GrabLeft;
     private readonly InputAction m_Gameplay_LeftArmVertical;
     private readonly InputAction m_Gameplay_RightArmVertical;
+    private readonly InputAction m_Gameplay_ChangeCamera;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -654,6 +676,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @GrabLeft => m_Wrapper.m_Gameplay_GrabLeft;
         public InputAction @LeftArmVertical => m_Wrapper.m_Gameplay_LeftArmVertical;
         public InputAction @RightArmVertical => m_Wrapper.m_Gameplay_RightArmVertical;
+        public InputAction @ChangeCamera => m_Wrapper.m_Gameplay_ChangeCamera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -681,6 +704,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RightArmVertical.started += instance.OnRightArmVertical;
             @RightArmVertical.performed += instance.OnRightArmVertical;
             @RightArmVertical.canceled += instance.OnRightArmVertical;
+            @ChangeCamera.started += instance.OnChangeCamera;
+            @ChangeCamera.performed += instance.OnChangeCamera;
+            @ChangeCamera.canceled += instance.OnChangeCamera;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -703,6 +729,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RightArmVertical.started -= instance.OnRightArmVertical;
             @RightArmVertical.performed -= instance.OnRightArmVertical;
             @RightArmVertical.canceled -= instance.OnRightArmVertical;
+            @ChangeCamera.started -= instance.OnChangeCamera;
+            @ChangeCamera.performed -= instance.OnChangeCamera;
+            @ChangeCamera.canceled -= instance.OnChangeCamera;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -852,6 +881,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnGrabLeft(InputAction.CallbackContext context);
         void OnLeftArmVertical(InputAction.CallbackContext context);
         void OnRightArmVertical(InputAction.CallbackContext context);
+        void OnChangeCamera(InputAction.CallbackContext context);
     }
     public interface IArmControlsActions
     {
