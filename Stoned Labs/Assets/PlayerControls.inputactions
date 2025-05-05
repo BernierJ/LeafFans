@@ -414,12 +414,6 @@
             ]
         },
         {
-            "name": "ArmControls",
-            "id": "8cba6c6e-871f-4cc4-9e46-ec593a9a1902",
-            "actions": [],
-            "bindings": []
-        },
-        {
             "name": "QTEButtons",
             "id": "51ef84f9-e795-4f8a-89fb-6bb6fe33fc12",
             "actions": [
@@ -460,7 +454,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "test1",
+                    "name": "Test1",
                     "type": "Button",
                     "id": "0417aedf-cd59-4b0b-9bff-23b8d48e2929",
                     "expectedControlType": "",
@@ -469,7 +463,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "test2",
+                    "name": "Test2",
                     "type": "Button",
                     "id": "a29f773e-701a-41b9-9230-9f9bdbd5fe24",
                     "expectedControlType": "",
@@ -530,7 +524,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "test1",
+                    "action": "Test1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -541,7 +535,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "test2",
+                    "action": "Test2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

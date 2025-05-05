@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,10 +24,16 @@ public class QTEButton : MonoBehaviour
 
     private int _currentButton = 0;
 
-    private IObservable<InputControl> buttonPress;
+    private IObservable<InputAction> buttonPress;
 
-    private string _inputAction;
+    private InputAction _inputAction;
 
+    private bool _buttonPressed;
+
+    public delegate void QTEDelegate();
+    public QTEDelegate QTEChainCompleted;
+
+    [SerializeField] PlayerInput _playerInput;
     //private InputControl _buttonControl;
 
 
@@ -53,6 +60,10 @@ public class QTEButton : MonoBehaviour
         
         SetButton(_buttonNameSequence[_currentButton]); // sets the first QTE to the first button in the list
 
+        _inputMap.QTEButtons.Enable();
+
+        
+
         //_buttonControl = _buttonAction.activeControl;
 
     }
@@ -69,6 +80,10 @@ public class QTEButton : MonoBehaviour
         {
             _timerCountdown += Time.deltaTime;
             //HandleInput();
+
+            HandleInputLite();
+
+            
         }
         
     
@@ -84,7 +99,10 @@ public class QTEButton : MonoBehaviour
 
     private void HandleInput()
     {
-        InputSystem.onAnyButtonPress.CallOnce(ctrl => StoreResult(ctrl));
+        InputSystem.onAnyButtonPress.Call(_inputAction => 
+        {
+            StoreResult(_inputAction);
+        });
 
     }
 
@@ -118,7 +136,7 @@ public class QTEButton : MonoBehaviour
     {
         
 
-        if (_buttonAction.inProgress)
+        if (_inputAction.inProgress && _buttonAction.inProgress)
         {
             _inputIsCorrect = true;
             CorrectInput();
@@ -135,11 +153,60 @@ public class QTEButton : MonoBehaviour
 
     private void StoreResult(InputControl action)
     {
-        _inputAction = action.name;
+       // _inputAction = action.;
 
-        InputIsCorrect(_inputAction);
+        //InputIsCorrect(_inputAction);
         
     }
+
+    private void HandleInputLite()
+    {
+
+        if(_buttonAction.WasPressedThisFrame())
+        {
+            SimpleSuccess();
+        }
+
+        /*OnTest1();
+
+        if (_buttonAction.inProgress)
+        {
+            SimpleSuccess();
+
+        } */
+
+        if(_timerCountdown > _QTETimer)
+        {
+            IncorrectInput();
+        }
+    }
+
+    private void SimpleSuccess()
+    {
+        Debug.Log("SUCCESS");
+            _currentButton++;
+            if(_currentButton >= _buttonNameSequence.Length)
+            {
+                _currentButton = 0;
+
+                QTEChainCompleted?.Invoke();
+                gameObject.SetActive(false);
+            }
+            SetButton(_buttonNameSequence[_currentButton]);
+            _timerCountdown = 0;
+    }
+
+    /*public void OnTest1()
+    {
+        if(_inputMap.QTEButtons.Test1.inProgress)
+        {
+            SimpleSuccess();
+        }
+        else
+        {
+            IncorrectInput();
+        }
+    } */
 
 
 }

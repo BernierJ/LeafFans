@@ -436,12 +436,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""ArmControls"",
-            ""id"": ""8cba6c6e-871f-4cc4-9e46-ec593a9a1902"",
-            ""actions"": [],
-            ""bindings"": []
-        },
-        {
             ""name"": ""QTEButtons"",
             ""id"": ""51ef84f9-e795-4f8a-89fb-6bb6fe33fc12"",
             ""actions"": [
@@ -482,7 +476,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""test1"",
+                    ""name"": ""Test1"",
                     ""type"": ""Button"",
                     ""id"": ""0417aedf-cd59-4b0b-9bff-23b8d48e2929"",
                     ""expectedControlType"": """",
@@ -491,7 +485,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""test2"",
+                    ""name"": ""Test2"",
                     ""type"": ""Button"",
                     ""id"": ""a29f773e-701a-41b9-9230-9f9bdbd5fe24"",
                     ""expectedControlType"": """",
@@ -552,7 +546,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""test1"",
+                    ""action"": ""Test1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -563,7 +557,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""test2"",
+                    ""action"": ""Test2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -581,22 +575,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_LeftArmVertical = m_Gameplay.FindAction("LeftArmVertical", throwIfNotFound: true);
         m_Gameplay_RightArmVertical = m_Gameplay.FindAction("RightArmVertical", throwIfNotFound: true);
         m_Gameplay_ChangeCamera = m_Gameplay.FindAction("ChangeCamera", throwIfNotFound: true);
-        // ArmControls
-        m_ArmControls = asset.FindActionMap("ArmControls", throwIfNotFound: true);
         // QTEButtons
         m_QTEButtons = asset.FindActionMap("QTEButtons", throwIfNotFound: true);
         m_QTEButtons_UpButton = m_QTEButtons.FindAction("UpButton", throwIfNotFound: true);
         m_QTEButtons_RightButton = m_QTEButtons.FindAction("RightButton", throwIfNotFound: true);
         m_QTEButtons_LeftButton = m_QTEButtons.FindAction("LeftButton", throwIfNotFound: true);
         m_QTEButtons_DownButton = m_QTEButtons.FindAction("DownButton", throwIfNotFound: true);
-        m_QTEButtons_test1 = m_QTEButtons.FindAction("test1", throwIfNotFound: true);
-        m_QTEButtons_test2 = m_QTEButtons.FindAction("test2", throwIfNotFound: true);
+        m_QTEButtons_Test1 = m_QTEButtons.FindAction("Test1", throwIfNotFound: true);
+        m_QTEButtons_Test2 = m_QTEButtons.FindAction("Test2", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.Gameplay.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_ArmControls.enabled, "This will cause a leak and performance issues, PlayerControls.ArmControls.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_QTEButtons.enabled, "This will cause a leak and performance issues, PlayerControls.QTEButtons.Disable() has not been called.");
     }
 
@@ -750,44 +741,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
 
-    // ArmControls
-    private readonly InputActionMap m_ArmControls;
-    private List<IArmControlsActions> m_ArmControlsActionsCallbackInterfaces = new List<IArmControlsActions>();
-    public struct ArmControlsActions
-    {
-        private @PlayerControls m_Wrapper;
-        public ArmControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputActionMap Get() { return m_Wrapper.m_ArmControls; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ArmControlsActions set) { return set.Get(); }
-        public void AddCallbacks(IArmControlsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Add(instance);
-        }
-
-        private void UnregisterCallbacks(IArmControlsActions instance)
-        {
-        }
-
-        public void RemoveCallbacks(IArmControlsActions instance)
-        {
-            if (m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IArmControlsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_ArmControlsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_ArmControlsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public ArmControlsActions @ArmControls => new ArmControlsActions(this);
-
     // QTEButtons
     private readonly InputActionMap m_QTEButtons;
     private List<IQTEButtonsActions> m_QTEButtonsActionsCallbackInterfaces = new List<IQTEButtonsActions>();
@@ -795,8 +748,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_QTEButtons_RightButton;
     private readonly InputAction m_QTEButtons_LeftButton;
     private readonly InputAction m_QTEButtons_DownButton;
-    private readonly InputAction m_QTEButtons_test1;
-    private readonly InputAction m_QTEButtons_test2;
+    private readonly InputAction m_QTEButtons_Test1;
+    private readonly InputAction m_QTEButtons_Test2;
     public struct QTEButtonsActions
     {
         private @PlayerControls m_Wrapper;
@@ -805,8 +758,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @RightButton => m_Wrapper.m_QTEButtons_RightButton;
         public InputAction @LeftButton => m_Wrapper.m_QTEButtons_LeftButton;
         public InputAction @DownButton => m_Wrapper.m_QTEButtons_DownButton;
-        public InputAction @test1 => m_Wrapper.m_QTEButtons_test1;
-        public InputAction @test2 => m_Wrapper.m_QTEButtons_test2;
+        public InputAction @Test1 => m_Wrapper.m_QTEButtons_Test1;
+        public InputAction @Test2 => m_Wrapper.m_QTEButtons_Test2;
         public InputActionMap Get() { return m_Wrapper.m_QTEButtons; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -828,12 +781,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DownButton.started += instance.OnDownButton;
             @DownButton.performed += instance.OnDownButton;
             @DownButton.canceled += instance.OnDownButton;
-            @test1.started += instance.OnTest1;
-            @test1.performed += instance.OnTest1;
-            @test1.canceled += instance.OnTest1;
-            @test2.started += instance.OnTest2;
-            @test2.performed += instance.OnTest2;
-            @test2.canceled += instance.OnTest2;
+            @Test1.started += instance.OnTest1;
+            @Test1.performed += instance.OnTest1;
+            @Test1.canceled += instance.OnTest1;
+            @Test2.started += instance.OnTest2;
+            @Test2.performed += instance.OnTest2;
+            @Test2.canceled += instance.OnTest2;
         }
 
         private void UnregisterCallbacks(IQTEButtonsActions instance)
@@ -850,12 +803,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DownButton.started -= instance.OnDownButton;
             @DownButton.performed -= instance.OnDownButton;
             @DownButton.canceled -= instance.OnDownButton;
-            @test1.started -= instance.OnTest1;
-            @test1.performed -= instance.OnTest1;
-            @test1.canceled -= instance.OnTest1;
-            @test2.started -= instance.OnTest2;
-            @test2.performed -= instance.OnTest2;
-            @test2.canceled -= instance.OnTest2;
+            @Test1.started -= instance.OnTest1;
+            @Test1.performed -= instance.OnTest1;
+            @Test1.canceled -= instance.OnTest1;
+            @Test2.started -= instance.OnTest2;
+            @Test2.performed -= instance.OnTest2;
+            @Test2.canceled -= instance.OnTest2;
         }
 
         public void RemoveCallbacks(IQTEButtonsActions instance)
@@ -882,9 +835,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnLeftArmVertical(InputAction.CallbackContext context);
         void OnRightArmVertical(InputAction.CallbackContext context);
         void OnChangeCamera(InputAction.CallbackContext context);
-    }
-    public interface IArmControlsActions
-    {
     }
     public interface IQTEButtonsActions
     {
