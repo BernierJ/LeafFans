@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 110100090}
   - component: {fileID: 110100089}
   - component: {fileID: 110100088}
+  - component: {fileID: 110100092}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: QTE UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,6 +228,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &110100092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110100087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442a8e5b7d1a5d34988fadad1c3b00ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _QTEActions: {fileID: 270882141}
+  _QTEImages: []
 --- !u!1 &270882140
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372ac2eb0d3e708488e515523df4dbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _QTEUI: {fileID: 0}
   _QTETimer: 3
   _buttonNameSequence:
   - Test1
@@ -703,37 +719,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719336455}
   m_CullTransparentMesh: 1
---- !u!1 &1889428022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1889428023}
-  m_Layer: 0
-  m_Name: playerEmpty
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1889428023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889428022}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 480, y: 300, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1930148185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,4 +1030,3 @@ SceneRoots:
   - {fileID: 110100091}
   - {fileID: 2133073229}
   - {fileID: 270882142}
-  - {fileID: 1889428023}

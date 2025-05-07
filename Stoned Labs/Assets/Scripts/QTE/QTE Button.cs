@@ -11,6 +11,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class QTEButton : MonoBehaviour
 {
+    [SerializeField] private QTEUI _QTEUI;
     [SerializeField] public float _QTETimer; // max time for each QTE
     private float _timerCountdown;
     private PlayerControls _inputMap;
@@ -24,14 +25,21 @@ public class QTEButton : MonoBehaviour
 
     private int _currentButton = 0;
 
-    private IObservable<InputAction> buttonPress;
+    //private IObservable<InputAction> buttonPress;
 
     private InputAction _inputAction;
 
-    private bool _buttonPressed;
+    //private bool _buttonPressed;
 
     public delegate void QTEDelegate();
     public QTEDelegate QTEChainCompleted;
+
+    public QTEDelegate QTESingleCompleted;
+
+    public QTEDelegate QTEFailed;
+
+    public QTEDelegate QTEStarted;
+
 
     [SerializeField] PlayerInput _playerInput;
     //private InputControl _buttonControl;
@@ -46,12 +54,20 @@ public class QTEButton : MonoBehaviour
 
         _triggerQTE = true;
 
+        _inputMap.QTEButtons.Enable();
+
+        QTEStarted?.Invoke();
+
+        _QTEUI.gameObject.SetActive(true);
+
         
     }
 
     void OnDisable()
     {
         //m_EventListener.Dispose();
+        _inputMap.QTEButtons.Disable();
+        _QTEUI.gameObject.SetActive(false);
     }
     private void Awake()
     {
@@ -60,7 +76,7 @@ public class QTEButton : MonoBehaviour
         
         SetButton(_buttonNameSequence[_currentButton]); // sets the first QTE to the first button in the list
 
-        _inputMap.QTEButtons.Enable();
+        
 
         
 
@@ -70,7 +86,7 @@ public class QTEButton : MonoBehaviour
 
     private void Start()
     {
-        _triggerQTE = true;
+        
     }
     void Update()
     {
@@ -127,6 +143,8 @@ public class QTEButton : MonoBehaviour
             _currentButton = 0;
             SetButton(_buttonNameSequence[_currentButton]);
             _timerCountdown = 0;
+
+            QTEFailed?.Invoke();
         }
     }
 
@@ -194,6 +212,8 @@ public class QTEButton : MonoBehaviour
             }
             SetButton(_buttonNameSequence[_currentButton]);
             _timerCountdown = 0;
+            
+            QTESingleCompleted?.Invoke();
     }
 
     /*public void OnTest1()
