@@ -7,6 +7,9 @@ public class QTEUI : MonoBehaviour
     [SerializeField] private QTEButton _QTEActions;
     [SerializeField] private List<GameObject> _QTEImages;
 
+    public delegate void QTEDisplay();
+    public QTEDisplay DisplaySuccess;
+
     private int _index;
     void Start()
     {
@@ -15,6 +18,9 @@ public class QTEUI : MonoBehaviour
         //_QTEActions.QTEFailed += 
         //_QTEActions.QTESingleCompleted +=
         _QTEActions.QTEStarted += DisplayNextImage;
+        _QTEActions.QTESingleCompleted += DisplayNextImage;
+        _QTEActions.QTEFailed += Restart;
+        _QTEActions.QTEChainCompleted += Success;
     }
 
     // Update is called once per frame
@@ -49,6 +55,17 @@ public class QTEUI : MonoBehaviour
     private void Disable()
     {
         enabled = false;
+    }
+
+    private void Restart()
+    {
+        _index = 0;
+        DisplayNextImage();
+    }
+
+    private void Success()
+    {
+        DisplaySuccess?.Invoke();
     }
 
 
