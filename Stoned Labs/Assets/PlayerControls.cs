@@ -606,6 +606,74 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""StartMenu"",
+            ""id"": ""736bfd69-b9fc-4e14-8db0-9b8abda139c2"",
+            ""actions"": [
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""4090210d-c54f-4e1e-8a6a-905b318e59f6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controls"",
+                    ""type"": ""Button"",
+                    ""id"": ""abfa0f0e-802e-43cb-a872-804798724a26"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""88d0c1b2-d460-43bd-9ff4-f83dcfc732f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9f56bf01-8c7c-4ec9-8b51-13276de660cc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bfecc64-9845-48d1-a5ca-ae2a02d05690"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79c377f0-a313-4ad1-9bd4-7f413711262a"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -627,12 +695,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_QTEButtons_DownButton = m_QTEButtons.FindAction("DownButton", throwIfNotFound: true);
         m_QTEButtons_Test1 = m_QTEButtons.FindAction("Test1", throwIfNotFound: true);
         m_QTEButtons_Test2 = m_QTEButtons.FindAction("Test2", throwIfNotFound: true);
+        // StartMenu
+        m_StartMenu = asset.FindActionMap("StartMenu", throwIfNotFound: true);
+        m_StartMenu_Start = m_StartMenu.FindAction("Start", throwIfNotFound: true);
+        m_StartMenu_Controls = m_StartMenu.FindAction("Controls", throwIfNotFound: true);
+        m_StartMenu_Return = m_StartMenu.FindAction("Return", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.Gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_QTEButtons.enabled, "This will cause a leak and performance issues, PlayerControls.QTEButtons.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_StartMenu.enabled, "This will cause a leak and performance issues, PlayerControls.StartMenu.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -870,6 +944,68 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public QTEButtonsActions @QTEButtons => new QTEButtonsActions(this);
+
+    // StartMenu
+    private readonly InputActionMap m_StartMenu;
+    private List<IStartMenuActions> m_StartMenuActionsCallbackInterfaces = new List<IStartMenuActions>();
+    private readonly InputAction m_StartMenu_Start;
+    private readonly InputAction m_StartMenu_Controls;
+    private readonly InputAction m_StartMenu_Return;
+    public struct StartMenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public StartMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_StartMenu_Start;
+        public InputAction @Controls => m_Wrapper.m_StartMenu_Controls;
+        public InputAction @Return => m_Wrapper.m_StartMenu_Return;
+        public InputActionMap Get() { return m_Wrapper.m_StartMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IStartMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StartMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StartMenuActionsCallbackInterfaces.Add(instance);
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
+            @Controls.started += instance.OnControls;
+            @Controls.performed += instance.OnControls;
+            @Controls.canceled += instance.OnControls;
+            @Return.started += instance.OnReturn;
+            @Return.performed += instance.OnReturn;
+            @Return.canceled += instance.OnReturn;
+        }
+
+        private void UnregisterCallbacks(IStartMenuActions instance)
+        {
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
+            @Controls.started -= instance.OnControls;
+            @Controls.performed -= instance.OnControls;
+            @Controls.canceled -= instance.OnControls;
+            @Return.started -= instance.OnReturn;
+            @Return.performed -= instance.OnReturn;
+            @Return.canceled -= instance.OnReturn;
+        }
+
+        public void RemoveCallbacks(IStartMenuActions instance)
+        {
+            if (m_Wrapper.m_StartMenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStartMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StartMenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StartMenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StartMenuActions @StartMenu => new StartMenuActions(this);
     public interface IGameplayActions
     {
         void OnMoveLeftArm(InputAction.CallbackContext context);
@@ -888,5 +1024,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnDownButton(InputAction.CallbackContext context);
         void OnTest1(InputAction.CallbackContext context);
         void OnTest2(InputAction.CallbackContext context);
+    }
+    public interface IStartMenuActions
+    {
+        void OnStart(InputAction.CallbackContext context);
+        void OnControls(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
     }
 }

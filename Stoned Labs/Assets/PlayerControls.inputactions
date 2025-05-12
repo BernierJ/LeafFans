@@ -584,6 +584,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "StartMenu",
+            "id": "736bfd69-b9fc-4e14-8db0-9b8abda139c2",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "4090210d-c54f-4e1e-8a6a-905b318e59f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Controls",
+                    "type": "Button",
+                    "id": "abfa0f0e-802e-43cb-a872-804798724a26",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "88d0c1b2-d460-43bd-9ff4-f83dcfc732f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9f56bf01-8c7c-4ec9-8b51-13276de660cc",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bfecc64-9845-48d1-a5ca-ae2a02d05690",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79c377f0-a313-4ad1-9bd4-7f413711262a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

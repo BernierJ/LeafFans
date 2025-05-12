@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/JosephTest.unity
-    guid: fa6c7b7a66e89684eafdd147bb4db676
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 3146a542283934942a7f3c5a59cb1f30
+  - enabled: 1
+    path: Assets/Scenes/JosephTest.unity
+    guid: fa6c7b7a66e89684eafdd147bb4db676
   m_configObjects: {}
