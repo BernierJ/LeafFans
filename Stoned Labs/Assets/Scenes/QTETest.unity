@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372ac2eb0d3e708488e515523df4dbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _QTEUI: {fileID: 0}
+  _QTEUI: {fileID: 110100092}
   _QTETimer: 3
   _buttonNameSequence:
   - Test1
