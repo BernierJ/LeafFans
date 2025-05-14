@@ -5221,6 +5221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76861603}
   - component: {fileID: 76861604}
+  - component: {fileID: 76861605}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -5264,6 +5265,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &76861605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76861602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1 &96776725
 GameObject:
   m_ObjectHideFlags: 0
@@ -5919,6 +5934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276172991}
   - component: {fileID: 276172992}
+  - component: {fileID: 276172993}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -5962,6 +5978,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &276172993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276172990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1001 &278430595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6466,6 +6496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spoon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43ec24501aa3c1b4e834244ed3514011,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
+      objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 43ec24501aa3c1b4e834244ed3514011,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6521,8 +6556,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.7, z: 0.3}
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Size: {x: 0.2, y: 0.65, z: 0.3}
+  m_Center: {x: 0, y: 0.34, z: 0}
 --- !u!54 &372298575
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6871,19 +6906,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 3.59, z: 0}
---- !u!114 &448995102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448995096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06c92e64d944864a9d2b3e44bd14465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _panState: {fileID: 235109100}
 --- !u!1 &460077183
 GameObject:
   m_ObjectHideFlags: 3
@@ -7174,13 +7196,13 @@ Light:
   m_GameObject: {fileID: 594772575}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 200
+  m_Range: 18
+  m_SpotAngle: 78.861786
+  m_InnerSpotAngle: 71.16153
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -7235,13 +7257,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594772575}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.97, y: 14.71, z: -2.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &617076580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,6 +7274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617076581}
   - component: {fileID: 617076582}
+  - component: {fileID: 617076583}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -7295,6 +7318,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &617076583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617076580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1 &617876824
 GameObject:
   m_ObjectHideFlags: 0
@@ -10310,6 +10347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1061589992}
   - component: {fileID: 1061589993}
+  - component: {fileID: 1061589994}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -10353,6 +10391,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1061589994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061589991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1 &1066852066
 GameObject:
   m_ObjectHideFlags: 0
@@ -18059,10 +18111,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 448995100}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b3dcf2f2cfba964ea829c1bb2a0c685,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 448995102}
   m_SourcePrefab: {fileID: 100100000, guid: 6b3dcf2f2cfba964ea829c1bb2a0c685, type: 3}
 --- !u!1 &1724867274 stripped
 GameObject:
@@ -18128,6 +18176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757492535}
   - component: {fileID: 1757492536}
+  - component: {fileID: 1757492537}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -18171,6 +18220,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1757492537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757492534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: cannabutterstick
 --- !u!1 &1757517168
 GameObject:
   m_ObjectHideFlags: 0
@@ -18834,6 +18897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pileofcrispies
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ee2b180e377b444eb46a9db3f6bb03e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -21107,6 +21175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059395453}
   - component: {fileID: 2059395454}
+  - component: {fileID: 2059395455}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -21150,6 +21219,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2059395455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059395452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1 &2088163350
 GameObject:
   m_ObjectHideFlags: 0
@@ -21160,6 +21243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088163351}
   - component: {fileID: 2088163352}
+  - component: {fileID: 2088163353}
   m_Layer: 0
   m_Name: QTETrigger
   m_TagString: Untagged
@@ -21203,6 +21287,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2088163353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088163350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panStateManager: {fileID: 235109100}
+  targetName: 
 --- !u!1 &2110078136
 GameObject:
   m_ObjectHideFlags: 0

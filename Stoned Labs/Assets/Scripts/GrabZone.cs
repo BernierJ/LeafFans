@@ -6,6 +6,15 @@ public class GrabZone : MonoBehaviour
 {
     public GameObject heldObject;
 
+    private void Update()
+    {
+        // Auto-clear reference if the object is inactive
+        if (heldObject != null && !heldObject.activeInHierarchy)
+        {
+            heldObject = null;
+        }
+    }
+    
     private void OnTriggerStay(Collider other)
     {
         if (heldObject == null && other.CompareTag("Grabbable"))
