@@ -5378,6 +5378,27 @@ MonoBehaviour:
   grabZone: {fileID: 1485878592}
   grabPoint: {fileID: 1485878590}
   grabPressed: 0
+--- !u!1 &119492009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 6b3dcf2f2cfba964ea829c1bb2a0c685,
+    type: 3}
+  m_PrefabInstance: {fileID: 1694690456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &119492013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119492009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59ffa4e87d1d654da0745b17a0dbf46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  blinkInterval: 0.2
+  blinkCount: 6
 --- !u!1001 &123936634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18111,6 +18132,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 448995100}
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 6b3dcf2f2cfba964ea829c1bb2a0c685,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 119492013}
   m_SourcePrefab: {fileID: 100100000, guid: 6b3dcf2f2cfba964ea829c1bb2a0c685, type: 3}
 --- !u!1 &1724867274 stripped
 GameObject:
