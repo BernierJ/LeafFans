@@ -6,7 +6,7 @@ using UnityEngine;
 public class PanStateManager : MonoBehaviour
 {
     public List<GameObject> pans;  // Assign in Inspector
-    private int currentIndex = 0;
+    public int currentIndex = 0;
 
     public delegate void PanDelegate();
     public event PanDelegate StepCompleted;

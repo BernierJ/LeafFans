@@ -11,11 +11,11 @@ public class QTETriggerHandler : MonoBehaviour
     {
         // Check for butter
         targetName = "cannabutterstick";
-        if (other.gameObject.name == targetName)
+        if (other.gameObject.name == targetName  && panStateManager.currentIndex == 0)
         {
             Debug.Log("Butter object entered trigger zone. Switching pan state...");
 
-            if (panStateManager != null)
+            if (panStateManager != null  && panStateManager.currentIndex == 0)
             {
                 panStateManager.SwitchToNextPan();
             }
@@ -25,11 +25,11 @@ public class QTETriggerHandler : MonoBehaviour
 
         // Check for pile of rice cripsies
         targetName = "pileofcrispies";
-        if (other.gameObject.name == targetName)
+        if (other.gameObject.name == targetName  && panStateManager.currentIndex == 1)
         {
             Debug.Log("Pile of cripies object entered trigger zone. Switching pan state...");
 
-            if (panStateManager != null)
+            if (panStateManager != null  && panStateManager.currentIndex == 1)
             {
                 panStateManager.SwitchToNextPan();
             }
@@ -39,11 +39,11 @@ public class QTETriggerHandler : MonoBehaviour
 
         // Check for Spoon
         targetName = "Spoon";
-        if (other.gameObject.name == targetName)
+        if (other.gameObject.name == targetName  && panStateManager.currentIndex == 2)
         {
             Debug.Log("Spoon object entered trigger zone. Switching pan state...");
 
-            if (panStateManager != null)
+            if (panStateManager != null  && panStateManager.currentIndex == 2)
             {
                 panStateManager.SwitchToNextPan();
             }

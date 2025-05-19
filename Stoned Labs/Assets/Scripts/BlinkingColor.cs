@@ -45,8 +45,10 @@ public class BlinkingColor : MonoBehaviour
         for (int i = 0; i < blinkCount; i++)
         {
             objectRenderer.material.color = blinkColor;
+            objectRenderer.material.SetColor("_Color", Color.red);
             yield return new WaitForSeconds(blinkInterval);
             objectRenderer.material.color = originalColor;
+            objectRenderer.material.SetColor("_Color", originalColor);
             yield return new WaitForSeconds(blinkInterval);
         }
         isBlinking = false;
