@@ -7238,7 +7238,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 200
-  m_Range: 18
+  m_Range: 20.36
   m_SpotAngle: 78.861786
   m_InnerSpotAngle: 71.16153
   m_CookieSize: 10
@@ -7276,7 +7276,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -7710,6 +7710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcc219c9e9eddd4c8dc641b0407b518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _recipeUI: {fileID: 1129095950}
 --- !u!1 &701674656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10612,6 +10613,7 @@ MonoBehaviour:
   _taskText: {fileID: 938169624}
   _panState: {fileID: 235109100}
   _taskList:
+  - Put the pan on the stove
   - Put butter in a heated pan
   - Add some rice crispies
   - Stir with a spoon

@@ -22,7 +22,7 @@ public class RecipeUI : MonoBehaviour
         
     }
 
-    private void DisplayNextTask()
+    public void DisplayNextTask()
     {
         _taskIndex++;
         if(_taskIndex >= _taskList.Count)
