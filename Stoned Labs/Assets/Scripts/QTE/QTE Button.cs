@@ -30,7 +30,7 @@ public class QTEButton : MonoBehaviour
     private InputAction _inputAction;
 
     //private bool _buttonPressed;
-
+    public delegate void QTEImageName(string name);
     public delegate void QTEDelegate();
     public QTEDelegate QTEChainCompleted;
 
@@ -40,6 +40,8 @@ public class QTEButton : MonoBehaviour
 
     public QTEDelegate QTEStarted;
 
+    public QTEImageName ImageName;
+
 
     [SerializeField] PlayerInput _playerInput;
     //private InputControl _buttonControl;
@@ -48,19 +50,21 @@ public class QTEButton : MonoBehaviour
     void OnEnable()
     {
         //m_EventListener = InputSystem.onAnyButtonPress.CallOnce(OnButtonPressed);
-       // _receiveInput = _inputMap.QTEButtons.DownButton;
-       // _receiveInput.Enable();
+        // _receiveInput = _inputMap.QTEButtons.DownButton;
+        // _receiveInput.Enable();
         //_button.performed += InputIsCorrect;
 
         _triggerQTE = true;
 
         _inputMap.QTEButtons.Enable();
+        _inputMap.Gameplay.Disable();
 
         QTEStarted?.Invoke();
+        ImageName?.Invoke(_buttonNameSequence[_currentButton]);
 
         _QTEUI.gameObject.SetActive(true);
 
-        
+
     }
 
     void OnDisable()
@@ -71,14 +75,14 @@ public class QTEButton : MonoBehaviour
     }
     private void Awake()
     {
-        
+
         _inputMap = new PlayerControls();
-        
+
         SetButton(_buttonNameSequence[_currentButton]); // sets the first QTE to the first button in the list
 
-        
 
-        
+
+
 
         //_buttonControl = _buttonAction.activeControl;
 
@@ -86,7 +90,7 @@ public class QTEButton : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     void Update()
     {
@@ -99,23 +103,24 @@ public class QTEButton : MonoBehaviour
 
             HandleInputLite();
 
-            
+
         }
-        
-    
-        
+
+
+
     }
 
     private void SetButton(string button)
     {
         _buttonAction = _inputMap.FindAction(button);
         Debug.Log($"ButtonSet to {_buttonAction.name}");
+        ImageName?.Invoke(_buttonNameSequence[_currentButton]);
         //_buttonControl = _buttonAction.activeControl;
     }
 
     private void HandleInput()
     {
-        InputSystem.onAnyButtonPress.Call(_inputAction => 
+        InputSystem.onAnyButtonPress.Call(_inputAction =>
         {
             StoreResult(_inputAction);
         });
@@ -124,7 +129,7 @@ public class QTEButton : MonoBehaviour
 
     private void CorrectInput()
     {
-        if(_inputIsCorrect && _timerCountdown < _QTETimer)
+        if (_inputIsCorrect && _timerCountdown < _QTETimer)
         {
             Debug.Log("SUCCESS");
             _currentButton++;
@@ -152,7 +157,7 @@ public class QTEButton : MonoBehaviour
 
     private void InputIsCorrect(string action)
     {
-        
+
 
         if (_inputAction.inProgress && _buttonAction.inProgress)
         {
@@ -171,16 +176,16 @@ public class QTEButton : MonoBehaviour
 
     private void StoreResult(InputControl action)
     {
-       // _inputAction = action.;
+        // _inputAction = action.;
 
         //InputIsCorrect(_inputAction);
-        
+
     }
 
     private void HandleInputLite()
     {
 
-        if(_buttonAction.WasPressedThisFrame())
+        if (_buttonAction.WasPressedThisFrame())
         {
             SimpleSuccess();
         }
@@ -193,7 +198,7 @@ public class QTEButton : MonoBehaviour
 
         } */
 
-        if(_timerCountdown > _QTETimer)
+        if (_timerCountdown > _QTETimer)
         {
             IncorrectInput();
         }
@@ -202,18 +207,24 @@ public class QTEButton : MonoBehaviour
     private void SimpleSuccess()
     {
         Debug.Log("SUCCESS");
-            _currentButton++;
-            if(_currentButton >= _buttonNameSequence.Length)
-            {
-                _currentButton = 0;
+        _currentButton++;
+        if (_currentButton >= _buttonNameSequence.Length)
+        {
+            _currentButton = 0;
 
-                QTEChainCompleted?.Invoke();
-                gameObject.SetActive(false);
-            }
-            SetButton(_buttonNameSequence[_currentButton]);
-            _timerCountdown = 0;
-            
-            QTESingleCompleted?.Invoke();
+            QTEChainCompleted?.Invoke();
+
+            _inputMap.QTEButtons.Disable();
+            _inputMap.Gameplay.Enable();
+
+            SetRandomSequence();
+
+            gameObject.SetActive(false);
+        }
+        SetButton(_buttonNameSequence[_currentButton]);
+        _timerCountdown = 0;
+
+        QTESingleCompleted?.Invoke();
     }
 
     /*public void OnTest1()
@@ -227,6 +238,44 @@ public class QTEButton : MonoBehaviour
             IncorrectInput();
         }
     } */
+
+    public void SetSequence(string[] sequence)
+    {
+        _buttonNameSequence = sequence;
+    }
+
+    private void SetRandomSequence()
+    {
+        string[] newQTE = new string[6];
+        for (int i = 0; i < 6; i++)
+        {
+            int randomQTE = UnityEngine.Random.Range(1, 5);
+            newQTE[i] = IntToQTE(randomQTE);
+        }
+
+        _buttonNameSequence = newQTE;
+    }
+
+    private string IntToQTE(int num)
+    {
+        if (num == 1)
+        {
+            return "UpButton";
+        }
+        if (num == 2)
+        {
+            return "RightButton";
+        }
+        if (num == 3)
+        {
+            return "UpButton";
+        }
+        if (num == 4)
+        {
+            return "DownButton";
+        }
+        return "UpButton";
+    }
 
 
 }

@@ -28,7 +28,7 @@ public class OvenKnobs : MonoBehaviour
         {
             _particles.gameObject.SetActive(true);
             _panFireCollider.SetActive(true);
-            Debug.Log("VFX ON");
+            //Debug.Log("VFX ON");
             
         }
     }

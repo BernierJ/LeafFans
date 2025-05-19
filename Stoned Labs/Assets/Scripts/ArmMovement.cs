@@ -20,17 +20,22 @@ public class ArmMovement : MonoBehaviour
     [SerializeField] private Transform _leftArm;
     [SerializeField] private Transform _rightArm;
 
+    [SerializeField] private QTEButton _QTE;
+
     private bool _changeAngle;
     void Awake()
     {
-        
-        controls = new PlayerControls();
-    /*
-        controls.Gameplay.MoveLeftArm.performed += ctx => _leftDirection = ctx.ReadValue<Vector2>();
-        controls.Gameplay.MoveLeftArm.canceled += ctx => _leftDirection = Vector2.zero;
 
-        controls.Gameplay.MoveRightArm.performed += ctx => _rightDirection = ctx.ReadValue<Vector2>();
-        controls.Gameplay.MoveRightArm.canceled += ctx => _rightDirection = Vector2.zero; */
+        controls = new PlayerControls();
+
+        _QTE.QTEStarted += DisableControls;
+        _QTE.QTEChainCompleted += EnableControls;
+    /*
+                    controls.Gameplay.MoveLeftArm.performed += ctx => _leftDirection = ctx.ReadValue<Vector2>();
+                    controls.Gameplay.MoveLeftArm.canceled += ctx => _leftDirection = Vector2.zero;
+
+                    controls.Gameplay.MoveRightArm.performed += ctx => _rightDirection = ctx.ReadValue<Vector2>();
+                    controls.Gameplay.MoveRightArm.canceled += ctx => _rightDirection = Vector2.zero; */
 
         // Arm movement not shown here, just grab input
         //controls.Gameplay.GrabLeft.performed += ctx => leftArm.grabPressed = true;
@@ -39,6 +44,16 @@ public class ArmMovement : MonoBehaviour
         //controls.Gameplay.GrabRight.performed += ctx => rightArm.grabPressed = true;
         //controls.Gameplay.GrabRight.canceled += ctx => rightArm.grabPressed = false;
 
+    }
+
+    private void EnableControls()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    private void DisableControls()
+    {
+        controls.Gameplay.Disable();
     }
 
     private void Update()
