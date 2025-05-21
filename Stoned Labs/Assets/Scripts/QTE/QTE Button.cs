@@ -268,7 +268,7 @@ public class QTEButton : MonoBehaviour
         }
         if (num == 3)
         {
-            return "UpButton";
+            return "LeftButton";
         }
         if (num == 4)
         {
