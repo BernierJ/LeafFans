@@ -5,7 +5,7 @@ using UnityEngine;
 public class QTETriggerHandler : MonoBehaviour
 {
     public PanStateManager panStateManager;
-    public string targetName; // Name of the butter object
+    public string targetName; // Name of the object
 
     private GameObject Spoon2;
 
