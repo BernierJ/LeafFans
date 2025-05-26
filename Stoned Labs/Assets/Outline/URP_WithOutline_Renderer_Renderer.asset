@@ -36,7 +36,7 @@ MonoBehaviour:
       stencilReference: 1
       stencilCompareFunction: 6
       passOperation: 2
-      failOperation: 0
+      failOperation: 2
       zFailOperation: 0
     cameraSettings:
       overrideCamera: 0

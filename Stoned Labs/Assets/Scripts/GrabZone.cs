@@ -20,6 +20,7 @@ public class GrabZone : MonoBehaviour
         if (heldObject == null && other.CompareTag("Grabbable"))
         {
             heldObject = other.gameObject;
+            
         }
     }
 

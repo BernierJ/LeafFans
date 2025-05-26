@@ -8,6 +8,13 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _taskText;
     [SerializeField] private PanStateManager _panState;
     [SerializeField] private List<string> _taskList;
+
+
+    [SerializeField] private float _tipTimer;
+
+    private float _tipCountdown;
+    [SerializeField] private TextMeshProUGUI _tipText;
+    [SerializeField] private List<string> _tipList;
     private int _taskIndex = 0;
     //public string objectName; // Name of the object
     // Example: Names of objects you want to outline
@@ -18,6 +25,8 @@ public class RecipeUI : MonoBehaviour
         _panState.StepCompleted += DisplayNextTask;
         _taskText.text = _taskList[_taskIndex];
         UpdateOutlineForCurrentTask();
+
+        _tipText.fontSize = 0;
     }
 
     // Update is called once per frame
@@ -25,6 +34,20 @@ public class RecipeUI : MonoBehaviour
     {
         // check for what task the game is on
         // change the layer of the object from Not Outline to Outline
+        _tipCountdown += Time.deltaTime;
+
+        if (_tipCountdown >= _tipTimer)
+        {
+            _tipText.text = _tipList[_taskIndex];
+            _tipText.fontSize = 28;
+            Invoke("HideTip", 5);
+            _tipCountdown = 0f;
+        }
+    }
+
+    private void HideTip()
+    {
+        _tipText.fontSize = 0f;
     }
 
     public void DisplayNextTask()
@@ -35,8 +58,12 @@ public class RecipeUI : MonoBehaviour
             _taskIndex = 0;
         }
 
+        HideTip();
+
         _taskText.text = _taskList[_taskIndex];
+        _tipTimer += 3;
         UpdateOutlineForCurrentTask();
+        
     }
 
     void UpdateOutlineForCurrentTask()
