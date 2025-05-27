@@ -8,7 +8,7 @@ public class StartUI : MonoBehaviour
     [SerializeField] private Canvas _controlsCanvas;
     void Start()
     {
-        _controlsCanvas.gameObject.SetActive(false);
+        _controlsCanvas.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
