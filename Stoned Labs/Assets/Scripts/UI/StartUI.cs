@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StartUI : MonoBehaviour
 {
-    [SerializeField] private Canvas _controlsCanvas;
+    [SerializeField] private GameObject _controlsCanvas;
     void Start()
     {
-        _controlsCanvas.gameObject.SetActive(true);
+        _controlsCanvas.SetActive(true);
     }
 
     // Update is called once per frame
