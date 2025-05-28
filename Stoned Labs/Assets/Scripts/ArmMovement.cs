@@ -22,6 +22,8 @@ public class ArmMovement : MonoBehaviour
 
     [SerializeField] private QTEButton _QTE;
 
+    //[SerializeField] private Rigidbody leftArmRigidbody;
+
     private bool _changeAngle;
     void Awake()
     {
@@ -83,10 +85,13 @@ public class ArmMovement : MonoBehaviour
             if (_leftJoystickDirection.y > 0)
             {
                 arm.Translate(0, 0, 1*Time.deltaTime * _movementStrength);
+
+                //leftArmRigidbody.Move(Vector3.forward * Time.deltaTime * _movementStrength, Quaternion.identity);
             }
-            else if(_leftJoystickDirection.y < 0)
+            else if (_leftJoystickDirection.y < 0)
             {
-                arm.Translate(0, 0, -1*Time.deltaTime * _movementStrength);
+                arm.Translate(0, 0, -1 * Time.deltaTime * _movementStrength);
+                //leftArmRigidbody.Move(Vector3.back * Time.deltaTime * _movementStrength, Quaternion.identity);
             }
             if (_leftJoystickDirection.x > 0)
             {

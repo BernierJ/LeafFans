@@ -24,12 +24,17 @@ public class LockObject : MonoBehaviour
             GetComponentInParent<Rigidbody>().isKinematic = true;
 
             GetComponentInParent<LockSelf>().Lock();
-            
-            
+
+
             transform.position = other.transform.position;
-            
-            
+
+
             GetComponentInParent<Transform>().tag = "Locked";
+        }
+        else
+        {
+            Debug.Log("This object is not locked");
+            return;
         }
     }
 }

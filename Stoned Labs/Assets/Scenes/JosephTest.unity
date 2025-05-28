@@ -17085,7 +17085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 156c4f35b80da574893774a5a2cbe18f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1090314592}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156c4f35b80da574893774a5a2cbe18f, type: 3}
 --- !u!1 &305056138
@@ -21530,7 +21534,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 200
+  m_Intensity: 250
   m_Range: 20.36
   m_SpotAngle: 78.861786
   m_InnerSpotAngle: 71.16153
@@ -21572,7 +21576,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 250
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -21589,7 +21593,7 @@ Transform:
   m_GameObject: {fileID: 594772575}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.97, y: 14.71, z: -2.68}
+  m_LocalPosition: {x: 3.97, y: 16.53, z: -2.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29984,7 +29988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1080068686
 Transform:
   m_ObjectHideFlags: 0
@@ -30006,6 +30010,74 @@ Transform:
   - {fileID: 755351135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1090314591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090314592}
+  - component: {fileID: 1090314593}
+  - component: {fileID: 1090314594}
+  m_Layer: 0
+  m_Name: RiceKrispiesTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1090314592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090314591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.337, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518308770}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1090314593
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090314591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1090314594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090314591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877ee21fe9dce3a4fa6b05798ee8241b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riceKrispiesDone: {fileID: 1926546142}
+  riceKrispies: {fileID: 1080068685}
 --- !u!1 &1129095948
 GameObject:
   m_ObjectHideFlags: 0
@@ -30062,8 +30134,7 @@ MonoBehaviour:
   - Stir with a spoon
   - Add some rice crispies
   - Stir with a spoon
-  - 6
-  - 7
+  - Pour mixture in pan sheet.
   _tipTimer: 10
   _tipText: {fileID: 1925655737}
   _tipList:
@@ -30073,8 +30144,7 @@ MonoBehaviour:
   - Move the spoon to the pan
   - Pick up the rice crispies off the counter
   - Move the spoon to the pan
-  - tip 6
-  - tip 7
+  - Pick up the pan and take it to the pan sheet.
   outlineObjectNames:
   - {fileID: 235109098}
   - {fileID: 448995096}
@@ -42327,6 +42397,12 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!4 &1518308770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 156c4f35b80da574893774a5a2cbe18f,
+    type: 3}
+  m_PrefabInstance: {fileID: 278430595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530244295
 GameObject:
   m_ObjectHideFlags: 0
@@ -47374,72 +47450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442a8e5b7d1a5d34988fadad1c3b00ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1641130393
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1641130394}
-  - component: {fileID: 1641130396}
-  - component: {fileID: 1641130395}
-  m_Layer: 7
-  m_Name: PanLocker
-  m_TagString: Untagged
-  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1641130394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641130393}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.03, y: -0.67, z: -2.426}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1926546141}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1641130395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641130393}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8507869, y: 0.1910938, z: 1.6267502}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1641130396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641130393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7358e52762fd749a1de30dfb468bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1660058115
 GameObject:
   m_ObjectHideFlags: 0
@@ -51943,14 +51953,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f864a42aa80d0374ba98f3aeab44b55b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1641130394}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f864a42aa80d0374ba98f3aeab44b55b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1969645624}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f864a42aa80d0374ba98f3aeab44b55b,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 226031547}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f864a42aa80d0374ba98f3aeab44b55b,
         type: 3}
@@ -51973,10 +51975,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1926546144}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f864a42aa80d0374ba98f3aeab44b55b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1926546143}
   m_SourcePrefab: {fileID: 100100000, guid: f864a42aa80d0374ba98f3aeab44b55b, type: 3}
 --- !u!4 &1926546141 stripped
 Transform:
@@ -51990,19 +51988,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1926546140}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1926546143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926546142}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcc219c9e9eddd4c8dc641b0407b518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _recipeUI: {fileID: 1129095950}
 --- !u!54 &1926546144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53161,74 +53146,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1948861305}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1969645623
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1969645624}
-  - component: {fileID: 1969645626}
-  - component: {fileID: 1969645625}
-  m_Layer: 7
-  m_Name: QTETrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1969645624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969645623}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.54, z: -2.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1926546141}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1969645625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969645623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addea8e8a7c173e4ea9853a7c4447d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panStateManager: {fileID: 235109100}
-  targetName: cannabutterstick
---- !u!135 &1969645626
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969645623}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1997100576
 PrefabInstance:
   m_ObjectHideFlags: 0
