@@ -16873,6 +16873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263776578}
   - component: {fileID: 263776577}
+  - component: {fileID: 263776579}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16917,6 +16918,89 @@ Transform:
   - {fileID: 1880931244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263776579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263776576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d6d3bfeba6e1f2048a4e37ec08884a83,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4fa47a33-6627-4938-995a-2d7fd480a21c
+    m_ActionName: Gameplay/Move Left Arm[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fcc1f5aa-2cb1-4595-91a3-4054e4fd6c3d
+    m_ActionName: Gameplay/Move Right Arm[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f78e506-c37e-4e11-b9e2-d972713f3cae
+    m_ActionName: Gameplay/Grab Right[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c0d1f1e-534e-4da7-8f89-5d6332d24ad5
+    m_ActionName: Gameplay/Grab Left[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0c7f04ac-0974-4565-9386-e23512ed1fb6
+    m_ActionName: Gameplay/LeftArmVertical[/Keyboard/leftShift,/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6846a23d-a614-4139-8580-8b1b786824c1
+    m_ActionName: Gameplay/RightArmVertical[/Keyboard/rightShift,/Keyboard/rightAlt]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57ffb109-2808-47f1-933e-d721d9688438
+    m_ActionName: Gameplay/ChangeCamera
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3d75536b-d172-4f83-9f79-706cc883062b
+    m_ActionName: QTEButtons/UpButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd6a18ff-4c7c-4378-a7c6-3157f847ddc0
+    m_ActionName: QTEButtons/RightButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31204513-046e-4860-be4c-fd8959dcec88
+    m_ActionName: QTEButtons/LeftButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: affe564c-5eea-4bba-ab12-c0940ba8ec8b
+    m_ActionName: QTEButtons/DownButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0417aedf-cd59-4b0b-9bff-23b8d48e2929
+    m_ActionName: QTEButtons/test1[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a29f773e-701a-41b9-9230-9f9bdbd5fe24
+    m_ActionName: QTEButtons/test2[/Mouse/middleButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &276172990
 GameObject:
   m_ObjectHideFlags: 0
@@ -35144,6 +35228,11 @@ PrefabInstance:
       propertyPath: _QTEUI
       value: 
       objectReference: {fileID: 1638904507}
+    - target: {fileID: 7147298495542737196, guid: ac3f2d8406aa3f94ea21ebd7872b3cbd,
+        type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 263776579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
